@@ -1,0 +1,311 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D0AB9ACF1F3E742000E16257 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AB9ACE1F3E742000E16257 /* UIKit.framework */; };
+		D0AB9AD11F3E742000E16257 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AB9AD01F3E742000E16257 /* Foundation.framework */; };
+		D0AB9AD31F3E742000E16257 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AB9AD21F3E742000E16257 /* CoreGraphics.framework */; };
+		D0AB9AD51F3E742000E16257 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AB9AD41F3E742000E16257 /* GameController.framework */; };
+		D0AB9AD71F3E742000E16257 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AB9AD61F3E742000E16257 /* CoreMotion.framework */; };
+		D0AB9AD91F3E742000E16257 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AB9AD81F3E742000E16257 /* OpenGLES.framework */; };
+		D0AB9ADB1F3E742000E16257 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AB9ADA1F3E742000E16257 /* QuartzCore.framework */; };
+		D0AB9ADD1F3E742000E16257 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AB9ADC1F3E742000E16257 /* CoreAudio.framework */; };
+		D0AB9ADF1F3E742000E16257 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AB9ADE1F3E742000E16257 /* AudioToolbox.framework */; };
+		D0AB9AE11F3E742000E16257 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AB9AE01F3E742000E16257 /* SDL2.framework */; };
+		D0AB9AE51F3E742000E16257 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = D0AB9AE41F3E742000E16257 /* main.c */; };
+		D0AB9AED1F3E767400E16257 /* matrix4.c in Sources */ = {isa = PBXBuildFile; fileRef = D0AB9AEB1F3E767400E16257 /* matrix4.c */; };
+		D0AB9AFB1F3E793400E16257 /* 06_flag.fragment in Resources */ = {isa = PBXBuildFile; fileRef = D0AB9AF91F3E793400E16257 /* 06_flag.fragment */; };
+		D0AB9AFC1F3E793400E16257 /* 06_flag.vertex in Resources */ = {isa = PBXBuildFile; fileRef = D0AB9AFA1F3E793400E16257 /* 06_flag.vertex */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D0AB9ACB1F3E742000E16257 /* FlagFun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlagFun.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0AB9ACE1F3E742000E16257 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D0AB9AD01F3E742000E16257 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D0AB9AD21F3E742000E16257 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D0AB9AD41F3E742000E16257 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
+		D0AB9AD61F3E742000E16257 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		D0AB9AD81F3E742000E16257 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		D0AB9ADA1F3E742000E16257 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D0AB9ADC1F3E742000E16257 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		D0AB9ADE1F3E742000E16257 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		D0AB9AE01F3E742000E16257 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = /Users/bpm/Library/Frameworks/SDL2.framework; sourceTree = "<absolute>"; };
+		D0AB9AE31F3E742000E16257 /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
+		D0AB9AE41F3E742000E16257 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		D0AB9AEB1F3E767400E16257 /* matrix4.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = matrix4.c; sourceTree = "<group>"; };
+		D0AB9AEC1F3E767400E16257 /* matrix4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = matrix4.h; sourceTree = "<group>"; };
+		D0AB9AF61F3E77BA00E16257 /* gl3platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gl3platform.h; sourceTree = "<group>"; };
+		D0AB9AF71F3E77BA00E16257 /* gl3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gl3.h; sourceTree = "<group>"; };
+		D0AB9AF81F3E782C00E16257 /* khrplatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = khrplatform.h; sourceTree = "<group>"; };
+		D0AB9AF91F3E793400E16257 /* 06_flag.fragment */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = 06_flag.fragment; sourceTree = "<group>"; };
+		D0AB9AFA1F3E793400E16257 /* 06_flag.vertex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = 06_flag.vertex; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D0AB9AC81F3E742000E16257 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0AB9AD31F3E742000E16257 /* CoreGraphics.framework in Frameworks */,
+				D0AB9ACF1F3E742000E16257 /* UIKit.framework in Frameworks */,
+				D0AB9ADD1F3E742000E16257 /* CoreAudio.framework in Frameworks */,
+				D0AB9ADB1F3E742000E16257 /* QuartzCore.framework in Frameworks */,
+				D0AB9AD51F3E742000E16257 /* GameController.framework in Frameworks */,
+				D0AB9AE11F3E742000E16257 /* SDL2.framework in Frameworks */,
+				D0AB9ADF1F3E742000E16257 /* AudioToolbox.framework in Frameworks */,
+				D0AB9AD71F3E742000E16257 /* CoreMotion.framework in Frameworks */,
+				D0AB9AD11F3E742000E16257 /* Foundation.framework in Frameworks */,
+				D0AB9AD91F3E742000E16257 /* OpenGLES.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D0AB9AC21F3E742000E16257 = {
+			isa = PBXGroup;
+			children = (
+				D0AB9AE21F3E742000E16257 /* FlagFun */,
+				D0AB9ACD1F3E742000E16257 /* Frameworks */,
+				D0AB9ACC1F3E742000E16257 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D0AB9ACC1F3E742000E16257 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D0AB9ACB1F3E742000E16257 /* FlagFun.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D0AB9ACD1F3E742000E16257 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D0AB9ACE1F3E742000E16257 /* UIKit.framework */,
+				D0AB9AD01F3E742000E16257 /* Foundation.framework */,
+				D0AB9AD21F3E742000E16257 /* CoreGraphics.framework */,
+				D0AB9AD41F3E742000E16257 /* GameController.framework */,
+				D0AB9AD61F3E742000E16257 /* CoreMotion.framework */,
+				D0AB9AD81F3E742000E16257 /* OpenGLES.framework */,
+				D0AB9ADA1F3E742000E16257 /* QuartzCore.framework */,
+				D0AB9ADC1F3E742000E16257 /* CoreAudio.framework */,
+				D0AB9ADE1F3E742000E16257 /* AudioToolbox.framework */,
+				D0AB9AE01F3E742000E16257 /* SDL2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D0AB9AE21F3E742000E16257 /* FlagFun */ = {
+			isa = PBXGroup;
+			children = (
+				D0AB9AF91F3E793400E16257 /* 06_flag.fragment */,
+				D0AB9AFA1F3E793400E16257 /* 06_flag.vertex */,
+				D0AB9AF21F3E771600E16257 /* KHR */,
+				D0AB9AF11F3E770600E16257 /* GLES3 */,
+				D0AB9AE31F3E742000E16257 /* info.plist */,
+				D0AB9AE41F3E742000E16257 /* main.c */,
+				D0AB9AEB1F3E767400E16257 /* matrix4.c */,
+				D0AB9AEC1F3E767400E16257 /* matrix4.h */,
+			);
+			path = FlagFun;
+			sourceTree = "<group>";
+		};
+		D0AB9AF11F3E770600E16257 /* GLES3 */ = {
+			isa = PBXGroup;
+			children = (
+				D0AB9AF71F3E77BA00E16257 /* gl3.h */,
+				D0AB9AF61F3E77BA00E16257 /* gl3platform.h */,
+			);
+			path = GLES3;
+			sourceTree = "<group>";
+		};
+		D0AB9AF21F3E771600E16257 /* KHR */ = {
+			isa = PBXGroup;
+			children = (
+				D0AB9AF81F3E782C00E16257 /* khrplatform.h */,
+			);
+			path = KHR;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D0AB9ACA1F3E742000E16257 /* FlagFun */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0AB9AE81F3E742000E16257 /* Build configuration list for PBXNativeTarget "FlagFun" */;
+			buildPhases = (
+				D0AB9AC71F3E742000E16257 /* Sources */,
+				D0AB9AC81F3E742000E16257 /* Frameworks */,
+				D0AB9AC91F3E742000E16257 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlagFun;
+			productName = FlagFun;
+			productReference = D0AB9ACB1F3E742000E16257 /* FlagFun.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D0AB9AC31F3E742000E16257 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0900;
+				TargetAttributes = {
+					D0AB9ACA1F3E742000E16257 = {
+						CreatedOnToolsVersion = 9.0;
+					};
+				};
+			};
+			buildConfigurationList = D0AB9AC61F3E742000E16257 /* Build configuration list for PBXProject "FlagFun" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D0AB9AC21F3E742000E16257;
+			productRefGroup = D0AB9ACC1F3E742000E16257 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D0AB9ACA1F3E742000E16257 /* FlagFun */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D0AB9AC91F3E742000E16257 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0AB9AFB1F3E793400E16257 /* 06_flag.fragment in Resources */,
+				D0AB9AFC1F3E793400E16257 /* 06_flag.vertex in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D0AB9AC71F3E742000E16257 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0AB9AE51F3E742000E16257 /* main.c in Sources */,
+				D0AB9AED1F3E767400E16257 /* matrix4.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D0AB9AE61F3E742000E16257 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D0AB9AE71F3E742000E16257 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		D0AB9AE91F3E742000E16257 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = V3285FX829;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"~/Library/Frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				INFOPLIST_FILE = FlagFun/info.plist;
+				OTHER_CFLAGS = (
+					"-I/usr/local/include/SDL2",
+					"-IFlagFun",
+					"-DVERTEX_SHADER='\"06_flag.vertex\"'",
+					"-DFRAGMENT_SHADER='\"06_flag.fragment\"'",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sparksandmagic.FlagFun;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D0AB9AEA1F3E742000E16257 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = V3285FX829;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"~/Library/Frameworks\"",
+				);
+				INFOPLIST_FILE = FlagFun/info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sparksandmagic.FlagFun;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D0AB9AC61F3E742000E16257 /* Build configuration list for PBXProject "FlagFun" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0AB9AE61F3E742000E16257 /* Debug */,
+				D0AB9AE71F3E742000E16257 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0AB9AE81F3E742000E16257 /* Build configuration list for PBXNativeTarget "FlagFun" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0AB9AE91F3E742000E16257 /* Debug */,
+				D0AB9AEA1F3E742000E16257 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D0AB9AC31F3E742000E16257 /* Project object */;
+}

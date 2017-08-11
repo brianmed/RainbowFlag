@@ -1,0 +1,13 @@
+#ifdef GL_ES
+precision mediump float;
+#endif
+
+attribute vec4 a_Position;
+uniform mat4 u_ModelMatrix;
+uniform float u_Ticks;
+uniform vec2 u_Resolution;
+uniform vec2 u_ClientMouse;
+
+void main() {
+    gl_Position = u_ModelMatrix * a_Position;
+}
