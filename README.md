@@ -11,6 +11,8 @@ Tested on:
 * macOS GUI App (SDL)
 * iOS Xcode Project Native SDL App
 
+http://bmedley.org/adhoc/2017-08-11/06_flag.html
+
 ![iOS_SDL](http://bmedley.org/adhoc/2017-08-11/iOS_SDL.png)
 
 ![macOS_Desktop_SDL](http://bmedley.org/adhoc/2017-08-11/macOS_Desktop_SDL.png)
