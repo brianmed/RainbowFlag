@@ -17,4 +17,6 @@ http://bmedley.org/adhoc/2017-08-11/06_flag.html
 
 ![macOS_Desktop_SDL](http://bmedley.org/adhoc/2017-08-11/macOS_Desktop_SDL.png)
 
-![Chrome_Emscripten_SDL](http://bmedley.org/adhoc/2017-08-11/Chrome_Webassembly.png)
+![macOS_Chrome_Emscripten_SDL](http://bmedley.org/adhoc/2017-08-11/Chrome_Webassembly.png)
+
+![Linux_Devuan_Firefox_Emscripten_SDL](http://bmedley.org/adhoc/2017-08-11/linux_devuan_firefox.png)
