@@ -5,9 +5,8 @@
 #include <emscripten/html5.h>
 #include <SDL.h>
 #include <GLES3/gl3.h>
-#else
+#else // iOS, OS X, Linux
 #include <SDL.h>
-#include <SDL_opengl.h>
 #include <GLES3/gl3.h>
 #endif
 
@@ -36,6 +35,8 @@ GLuint u_Resolution;
 GLuint u_ClientMouse;
 GLuint u_DeviceOrientation;
 
+GLfloat Resolution[] = { 640.0, 480.0 };
+
 GLfloat Vertices[] = {
     -1.0,  1.0,
     -1.0, -1.0,
@@ -49,8 +50,7 @@ GLfloat Vertices[] = {
 #define TICK_INTERVAL 30
 Uint32 NextTime;
 
-struct timespec time_utc();
-
+GLfloat time_microseconds();
 void animate();
 void draw();
 void compile_shader(const int shader_type, GLuint *shader_number, const char *shader_file, char *msg, size_t sz_msg);
@@ -58,10 +58,9 @@ void compile_shader(const int shader_type, GLuint *shader_number, const char *sh
 // emcc gl.c matrix4.c -DVERTEX_SHADER='"06_rainbow.vertex"' -DFRAGMENT_SHADER='"06_rainbow.fragment"' --preload-file 06_rainbow.vertex --preload-file 06_rainbow.fragment -O2 -s USE_SDL=2 -s FULL_ES3=1 -s WASM=1 -o 06_rainbow.html
 
 void
-setup(int width, int height)
+setup(int width, int height, char *argv[])
 {
     GLuint vertex_shader, fragment_shader;
-    const char *p;
     char msg[512];
 
     NextTime = SDL_GetTicks();
@@ -85,7 +84,8 @@ setup(int width, int height)
     GlProgram = glCreateProgram();
     glAttachShader(GlProgram, vertex_shader);
     glAttachShader(GlProgram, fragment_shader);
-    
+   
+    // TODO: GL_LINK_STATUS
     glLinkProgram(GlProgram);
     glGetProgramInfoLog(GlProgram, sizeof msg, NULL, msg);
     if (strlen(msg)) printf("info: %s\n", msg);
@@ -93,8 +93,8 @@ setup(int width, int height)
     /* Enable the shaders */
     glUseProgram(GlProgram);
 
+    // Vertices
     GLuint VertexBuffer;
-    
     glGenBuffers(1, &VertexBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, VertexBuffer);
     glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), &Vertices[0], GL_STATIC_DRAW);
@@ -146,13 +146,13 @@ animate()
 void
 draw()
 {
-    static GLfloat ticks = 0.0;
-    static GLfloat resolution[] = { 640.0, 480.0 };
+    static GLfloat now;
 
-    ticks += 0.1;
+    now = SDL_GetTicks();
+    if (NULL != getenv("GLFUN_GetTicks")) printf("%f\n", now);
 
-    glUniform1fv(u_Ticks, 1, &ticks);
-    glUniform2fv(u_Resolution, 1, resolution);
+    glUniform1fv(u_Ticks, 1, &now);
+    glUniform2fv(u_Resolution, 1, Resolution);
     glUniformMatrix4fv(u_ModelMatrix, 1, GL_FALSE, ModelMatrix->Elements);
 
     glClear(GL_COLOR_BUFFER_BIT);
@@ -205,7 +205,7 @@ compile_shader(const int shader_type, GLuint *shader_number, const char *shader_
     if (infile == NULL) {
         char *str = "fopen returned null";
 
-        strncat(msg, str, strlen(str));
+        strcpy(msg, str);
 
         return;
     }
@@ -224,6 +224,7 @@ compile_shader(const int shader_type, GLuint *shader_number, const char *shader_
     fread(shader_buffer, sizeof(char), numbytes, infile);
     // printf("%s\n", shader_buffer);
 
+    // TODO: GL_COMPILE_STATUS
     *shader_number = glCreateShader(shader_type);
     glShaderSource(*shader_number, 1, (const GLchar * const *)&shader_buffer, NULL);
     glCompileShader(*shader_number);
@@ -252,12 +253,16 @@ main(int argc, char *argv[])
     int height = 480;
 #endif
 
-    window = SDL_CreateWindow("sdlJoy", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_OPENGL);
+    window = SDL_CreateWindow("sdlJoy", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
     assert(window);
 
     context = SDL_GL_CreateContext(window);
 
-    setup(width, height);
+#if defined(EMSCRIPTEN) || defined(__IPHONEOS__)
+    setup(width, height, NULL);
+#else
+    setup(width, height, argv + 1);
+#endif
 
 #ifdef EMSCRIPTEN
     emscripten_set_mousemove_callback(0, 0, 1, mouse_callback);
@@ -282,6 +287,11 @@ main(int argc, char *argv[])
                 SDL_Quit();
 
                 return EXIT_SUCCESS;
+            } else if (SDL_WINDOWEVENT == event.type && SDL_WINDOWEVENT_RESIZED == event.window.event) {
+                Resolution[0] = event.window.data1;
+                Resolution[1] = event.window.data2;
+
+                glViewport(0, 0, (GLint) Resolution[0], (GLint) Resolution[1]);
             }
         }
     }
