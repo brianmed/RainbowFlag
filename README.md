@@ -11,9 +11,9 @@ Tested on:
 * macOS GUI App (SDL)
 * iOS Xcode Project Native (SDL)
 * Linux Firefox Devuan (WASM)
-* Linux Chrome Devuan (SDL)
+* Linux Devuan (SDL)
 
-http://bmedley.org/adhoc/2017-08-11/06_flag.html
+http://bmedley.org/adhoc/2017-08-13/06_flag.html
 
 ## iOS SDL
 
