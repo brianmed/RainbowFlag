@@ -26,6 +26,10 @@
 
 // emcc 06_rainbow.c matrix4.c --preload-file 06_rainbow.vertex --preload-file 06_rainbow.fragment -O2 -s USE_SDL=2 -s FULL_ES3=1 -s WASM=1 -o 06_rainbow.html
 
+// Linux
+// gcc -std=c99 -I. $(sdl2-config --cflags --libs) gl.c matrix4.c glad/glad.c -ldl -lm -lGL -DVERTEX_SHADER='"06_flag.vertex"' -DFRAGMENT_SHADER='"06_flag.fragment"' -o 06_flag
+
+// macOS
 // gcc -I. $(sdl2-config --cflags --libs) -framework OpenGL gl.c glad/glad.c matrix4.c -DVERTEX_SHADER='"06_flag.vertex"' -DFRAGMENT_SHADER='"06_flag.fragment"' -o 06_flag
 
 Matrix4 *ModelMatrix;
