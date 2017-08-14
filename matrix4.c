@@ -10,7 +10,6 @@
 #include <string.h>
 #include <sys/time.h>
 #include <unistd.h>
-#include <GLES3/gl3.h>
 
 #include "matrix4.h"
 

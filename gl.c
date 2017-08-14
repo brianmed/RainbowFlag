@@ -7,7 +7,7 @@
 #include <GLES3/gl3.h>
 #else // iOS, OS X, Linux
 #include <SDL.h>
-#include <GLES3/gl3.h>
+#include "glad/glad.h"
 #endif
 
 #include <stdio.h>
@@ -35,6 +35,8 @@ GLuint u_Resolution;
 GLuint u_ClientMouse;
 GLuint u_DeviceOrientation;
 
+GLuint VertexBuffer;
+
 GLfloat Resolution[] = { 640.0, 480.0 };
 
 GLfloat Vertices[] = {
@@ -50,7 +52,6 @@ GLfloat Vertices[] = {
 #define TICK_INTERVAL 30
 Uint32 NextTime;
 
-GLfloat time_microseconds();
 void animate();
 void draw();
 void compile_shader(const int shader_type, GLuint *shader_number, const char *shader_file, char *msg, size_t sz_msg);
@@ -94,7 +95,6 @@ setup(int width, int height, char *argv[])
     glUseProgram(GlProgram);
 
     // Vertices
-    GLuint VertexBuffer;
     glGenBuffers(1, &VertexBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, VertexBuffer);
     glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), &Vertices[0], GL_STATIC_DRAW);
@@ -261,6 +261,8 @@ main(int argc, char *argv[])
 #if defined(EMSCRIPTEN) || defined(__IPHONEOS__)
     setup(width, height, NULL);
 #else
+    gladLoadGLLoader(SDL_GL_GetProcAddress);
+
     setup(width, height, argv + 1);
 #endif
 
