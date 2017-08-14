@@ -1,15 +1,14 @@
-#include <stdbool.h>
 
 #ifdef EMSCRIPTEN
 #include <emscripten.h>
 #include <emscripten/html5.h>
-#include <SDL.h>
 #include <GLES3/gl3.h>  // TODO: Would use glad; yet we get unresolved symbols at link
 #else // iOS, OS X, Linux
-#include <SDL.h>
 #include "glad/glad.h"
 #endif
 
+#include <SDL.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
 #include <assert.h>
