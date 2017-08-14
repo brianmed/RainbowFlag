@@ -1,7 +1,15 @@
 #ifndef _MATRIX4_H
 #define _MATRIX4_H
 
+#ifdef EMSCRIPTEN
+#include <emscripten.h>
+#include <emscripten/html5.h>
+#include <SDL.h>
 #include <GLES3/gl3.h>
+#else // iOS, OS X, Linux
+#include <SDL.h>
+#include "glad/glad.h"
+#endif
 
 typedef struct Matrix4 Matrix4;
 
@@ -25,4 +33,3 @@ struct iMatrix4 {
 } iMatrix4;
 
 #endif
-

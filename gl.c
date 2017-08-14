@@ -41,7 +41,14 @@ GLuint u_DeviceOrientation;
 
 GLuint VertexBuffer;
 
-GLfloat Resolution[] = { 640.0, 480.0 };
+GLfloat Resolution[] = {
+#if __IPHONEOS__
+    320.0,
+#else
+    640.0,
+#endif
+    480.0
+};
 
 GLfloat Vertices[] = {
     -1.0,  1.0,
@@ -249,25 +256,19 @@ main(int argc, char *argv[])
 
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
-#if __IPHONEOS__
-    int width = 320;
-    int height = 480;
-#else
-    int width = 640;
-    int height = 480;
-#endif
-
-    window = SDL_CreateWindow("sdlJoy", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
+    window = SDL_CreateWindow("sdlJoy", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, (int)Resolution[0], (int)Resolution[1], SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
     assert(window);
 
     glContext = SDL_GL_CreateContext(window);
 
-#if defined(EMSCRIPTEN) || defined(__IPHONEOS__)
-    setup(width, height, NULL);
-#else
+#ifndef EMSCRIPTEN
     gladLoadGLLoader(SDL_GL_GetProcAddress);
-
-    setup(width, height, argv + 1);
+#endif
+   
+#ifdef EMSCRIPTEN
+    setup((int)Resolution[0], (int)Resolution[1], NULL);
+#else
+    setup((int)Resolution[0], (int)Resolution[1], argv + 1);
 #endif
 
 #ifdef EMSCRIPTEN

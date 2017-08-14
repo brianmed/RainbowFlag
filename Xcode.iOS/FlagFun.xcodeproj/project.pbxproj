@@ -21,6 +21,7 @@
 		D0AB9AED1F3E767400E16257 /* matrix4.c in Sources */ = {isa = PBXBuildFile; fileRef = D0AB9AEB1F3E767400E16257 /* matrix4.c */; };
 		D0AB9AFB1F3E793400E16257 /* 06_flag.fragment in Resources */ = {isa = PBXBuildFile; fileRef = D0AB9AF91F3E793400E16257 /* 06_flag.fragment */; };
 		D0AB9AFC1F3E793400E16257 /* 06_flag.vertex in Resources */ = {isa = PBXBuildFile; fileRef = D0AB9AFA1F3E793400E16257 /* 06_flag.vertex */; };
+		D0F21D8E1F412CF50089B718 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = D0F21D8C1F412CAD0089B718 /* glad.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,11 +40,11 @@
 		D0AB9AE41F3E742000E16257 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		D0AB9AEB1F3E767400E16257 /* matrix4.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = matrix4.c; sourceTree = "<group>"; };
 		D0AB9AEC1F3E767400E16257 /* matrix4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = matrix4.h; sourceTree = "<group>"; };
-		D0AB9AF61F3E77BA00E16257 /* gl3platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gl3platform.h; sourceTree = "<group>"; };
-		D0AB9AF71F3E77BA00E16257 /* gl3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gl3.h; sourceTree = "<group>"; };
-		D0AB9AF81F3E782C00E16257 /* khrplatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = khrplatform.h; sourceTree = "<group>"; };
 		D0AB9AF91F3E793400E16257 /* 06_flag.fragment */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = 06_flag.fragment; sourceTree = "<group>"; };
 		D0AB9AFA1F3E793400E16257 /* 06_flag.vertex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = 06_flag.vertex; sourceTree = "<group>"; };
+		D0F21D8A1F412C9F0089B718 /* khrplatform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = khrplatform.h; sourceTree = "<group>"; };
+		D0F21D8C1F412CAD0089B718 /* glad.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
+		D0F21D8D1F412CAD0089B718 /* glad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = glad.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,10 +105,10 @@
 		D0AB9AE21F3E742000E16257 /* FlagFun */ = {
 			isa = PBXGroup;
 			children = (
+				D0F21D8B1F412CAD0089B718 /* glad */,
 				D0AB9AF91F3E793400E16257 /* 06_flag.fragment */,
 				D0AB9AFA1F3E793400E16257 /* 06_flag.vertex */,
 				D0AB9AF21F3E771600E16257 /* KHR */,
-				D0AB9AF11F3E770600E16257 /* GLES3 */,
 				D0AB9AE31F3E742000E16257 /* info.plist */,
 				D0AB9AE41F3E742000E16257 /* main.c */,
 				D0AB9AEB1F3E767400E16257 /* matrix4.c */,
@@ -116,21 +117,21 @@
 			path = FlagFun;
 			sourceTree = "<group>";
 		};
-		D0AB9AF11F3E770600E16257 /* GLES3 */ = {
-			isa = PBXGroup;
-			children = (
-				D0AB9AF71F3E77BA00E16257 /* gl3.h */,
-				D0AB9AF61F3E77BA00E16257 /* gl3platform.h */,
-			);
-			path = GLES3;
-			sourceTree = "<group>";
-		};
 		D0AB9AF21F3E771600E16257 /* KHR */ = {
 			isa = PBXGroup;
 			children = (
-				D0AB9AF81F3E782C00E16257 /* khrplatform.h */,
+				D0F21D8A1F412C9F0089B718 /* khrplatform.h */,
 			);
 			path = KHR;
+			sourceTree = "<group>";
+		};
+		D0F21D8B1F412CAD0089B718 /* glad */ = {
+			isa = PBXGroup;
+			children = (
+				D0F21D8C1F412CAD0089B718 /* glad.c */,
+				D0F21D8D1F412CAD0089B718 /* glad.h */,
+			);
+			path = glad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0F21D8E1F412CF50089B718 /* glad.c in Sources */,
 				D0AB9AE51F3E742000E16257 /* main.c in Sources */,
 				D0AB9AED1F3E767400E16257 /* matrix4.c in Sources */,
 			);
