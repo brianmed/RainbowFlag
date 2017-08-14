@@ -10,7 +10,8 @@ Tested on:
 * iOS Safari via emscripten Webassembly (WASM)
 * macOS GUI App (SDL)
 * iOS Xcode Project Native (SDL)
-* Linux Devuan (SDL)
+* Linux Firefox Devuan (WASM)
+* Linux Chrome Devuan (SDL)
 
 http://bmedley.org/adhoc/2017-08-11/06_flag.html
 
