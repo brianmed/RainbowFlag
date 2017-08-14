@@ -1,5 +1,5 @@
 
-#ifdef EMSCRIPTEN
+#ifdef __EMSCRIPTEN__
 #include <emscripten.h>
 #include <emscripten/html5.h>
 #include <GLES3/gl3.h>  // TODO: Would use glad; yet we get unresolved symbols at link
@@ -23,7 +23,7 @@
 
 #include "matrix4.h"
 
-// emcc 06_rainbow.c matrix4.c --preload-file 06_rainbow.vertex --preload-file 06_rainbow.fragment -O2 -s USE_SDL=2 -s FULL_ES3=1 -s WASM=1 -o 06_rainbow.html
+// emcc 06_rainbow.c matrix4.c --preload-file 06_rainbow.vertex --preload-file 06_rainbow.fragment -O2 -s USE_SDL=2 -s FULL_ES3=1 -s WASM=1 -s STRICT=1 -o 06_rainbow.html
 
 // Linux
 // gcc -std=c99 -I. $(sdl2-config --cflags --libs) gl.c matrix4.c glad/glad.c -ldl -lm -lGL -DVERTEX_SHADER='"06_flag.vertex"' -DFRAGMENT_SHADER='"06_flag.fragment"' -o 06_flag
@@ -170,7 +170,7 @@ draw()
     glDrawArrays(GL_TRIANGLES, 0, 6);
 }
 
-#ifdef EMSCRIPTEN
+#ifdef __EMSCRIPTEN__
 EM_BOOL
 mouse_callback(int eventType, const EmscriptenMouseEvent *e, void *userData)
 {
@@ -189,7 +189,7 @@ mouse_callback(int eventType, const EmscriptenMouseEvent *e, void *userData)
 }
 #endif
 
-#ifdef EMSCRIPTEN
+#ifdef __EMSCRIPTEN__
 EM_BOOL
 orientation_callback(int eventType, const EmscriptenDeviceOrientationEvent *e, void *userData)
 {
@@ -260,17 +260,17 @@ main(int argc, char *argv[])
 
     glContext = SDL_GL_CreateContext(window);
 
-#ifndef EMSCRIPTEN
+#ifndef __EMSCRIPTEN__
     gladLoadGLLoader(SDL_GL_GetProcAddress);
 #endif
    
-#ifdef EMSCRIPTEN
+#ifdef __EMSCRIPTEN__
     setup((int)Resolution[0], (int)Resolution[1], NULL);
 #else
     setup((int)Resolution[0], (int)Resolution[1], argv + 1);
 #endif
 
-#ifdef EMSCRIPTEN
+#ifdef __EMSCRIPTEN__
     emscripten_set_mousemove_callback(0, 0, 1, mouse_callback);
     emscripten_set_deviceorientation_callback(0, 0, orientation_callback);
     emscripten_set_main_loop(tick, 0, 1);
