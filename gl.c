@@ -4,7 +4,7 @@
 #include <emscripten.h>
 #include <emscripten/html5.h>
 #include <SDL.h>
-#include <GLES3/gl3.h>
+#include <GLES3/gl3.h>  // TODO: Would use glad; yet we get unresolved symbols at link
 #else // iOS, OS X, Linux
 #include <SDL.h>
 #include "glad/glad.h"
@@ -26,7 +26,7 @@
 
 // emcc 06_rainbow.c matrix4.c --preload-file 06_rainbow.vertex --preload-file 06_rainbow.fragment -O2 -s USE_SDL=2 -s FULL_ES3=1 -s WASM=1 -o 06_rainbow.html
 
-// gcc -I. $(sdl2-config --cflags --libs) -framework OpenGL gl.c matrix4.c -DVERTEX_SHADER='"06_flag.vertex"' -DFRAGMENT_SHADER='"06_flag.fragment"' -o 06_flag
+// gcc -I. $(sdl2-config --cflags --libs) -framework OpenGL gl.c glad/glad.c matrix4.c -DVERTEX_SHADER='"06_flag.vertex"' -DFRAGMENT_SHADER='"06_flag.fragment"' -o 06_flag
 
 Matrix4 *ModelMatrix;
 GLuint u_ModelMatrix;
@@ -238,7 +238,7 @@ int
 main(int argc, char *argv[])
 {
     SDL_Window *window;
-    SDL_GLContext context;
+    SDL_GLContext glContext;
 
     bool initialized = SDL_Init(SDL_INIT_VIDEO) == 0;
     assert(initialized);
@@ -256,7 +256,7 @@ main(int argc, char *argv[])
     window = SDL_CreateWindow("sdlJoy", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
     assert(window);
 
-    context = SDL_GL_CreateContext(window);
+    glContext = SDL_GL_CreateContext(window);
 
 #if defined(EMSCRIPTEN) || defined(__IPHONEOS__)
     setup(width, height, NULL);
@@ -285,6 +285,11 @@ main(int argc, char *argv[])
                 SDL_DestroyWindow(window);
 
                 window = NULL;
+
+                // Cleanup
+                glDeleteBuffers(1, &VertexBuffer);
+                SDL_GL_DeleteContext(glContext);
+                SDL_DestroyWindow(window);
 
                 SDL_Quit();
 

@@ -9,7 +9,8 @@ Tested on:
 * macOS Sierra Chrome via emscripten Webassembly (WASM)
 * iOS Safari via emscripten Webassembly (WASM)
 * macOS GUI App (SDL)
-* iOS Xcode Project Native SDL App
+* iOS Xcode Project Native (SDL)
+* Linux Devuan (SDL)
 
 http://bmedley.org/adhoc/2017-08-11/06_flag.html
 
